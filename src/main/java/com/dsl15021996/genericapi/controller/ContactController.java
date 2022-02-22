@@ -57,8 +57,8 @@ public class ContactController {
 	public ResponseEntity<Status> getStatus() throws Exception {
 		final String baseUrl = 
 		ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
-
-		return ResponseEntity.ok(new Status(baseUrl, database, new Date()));
+		String[] baseName = database.split(":");
+		return ResponseEntity.ok(new Status(baseUrl, baseName[1].toUpperCase(), new Date()));
 	}
     
 }
